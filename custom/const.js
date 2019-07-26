@@ -2,17 +2,17 @@ module.exports = {
 	DEBUG : false,
 
 	//FACEBOOK TOKEN
-	FB_APP_SECRET : '',
-	FB_PAGE_VERIFY_TOKEN : 'passsword_dang_yeu_nhat_qua_dat', // đặt 1 mã bất kỳ
-	FB_PAGE_ACCESS_TOKEN : '',
+	FB_APP_SECRET : '35c8f54940dab47e462e09eae9b566df',
+	FB_PAGE_VERIFY_TOKEN : 'phonglon', // đặt 1 mã bất kỳ
+	FB_PAGE_ACCESS_TOKEN : 'EAAG7WfEhGK0BAMI2aZC8VuPzMrZA5x9Tolz5QU9YT2XiviXfqeDnGKYZB48qAct5BZCLuglSYPRrhsfzZCvjuK4ZAuZAPTmp4PTfmWIQpnIDZBRC2x8bl4UZBhtJQHBWbLR9PBJZBZC0YmzXx4gYh2dqNbhFEZCN5L0YxxKKZArwAHSTxgYMS1UZC6aoNZAoOBbGWnfZCwsZD',
 
 	//HEROKU STUFFS
-	APP_NAME : '',
-	HEROKU_API_KEY : '',
+	APP_NAME : 'lienhachatbot-public',
+	HEROKU_API_KEY : '559dbf6b-bc03-4182-8da4-4b2e4cea8d68',
 	KEEP_APP_ALWAYS_ON : false, // đổi thành true nếu đã thêm credit card vào heroku
 
 	//MONGODB SETUP
-	DB_CONFIG_URI : '',
+	DB_CONFIG_URI : 'mongodb://admin:phonglon@lienhachatbot-public-shard-00-00-ozbw4.mongodb.net:27017,lienhachatbot-public-shard-00-01-ozbw4.mongodb.net:27017,lienhachatbot-public-shard-00-02-ozbw4.mongodb.net:27017/test?ssl=true&replicaSet=lienhachatbot-public-shard-0&authSource=admin&retryWrites=true&w=majority',
 
 	//ANALYTICS
 	HAS_POST_LOG : false,
