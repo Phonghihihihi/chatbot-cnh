@@ -9,7 +9,7 @@ module.exports = {
 	//HEROKU STUFFS
 	APP_NAME : 'lienhachatbot-public',
 	HEROKU_API_KEY : '559dbf6b-bc03-4182-8da4-4b2e4cea8d68',
-	KEEP_APP_ALWAYS_ON : false, // đổi thành true nếu đã thêm credit card vào heroku
+	KEEP_APP_ALWAYS_ON : true, // đổi thành true nếu đã thêm credit card vào heroku
 
 	//MONGODB SETUP
 	DB_CONFIG_URI : 'mongodb://admin:phonglon@lienhachatbot-public-shard-00-00-ozbw4.mongodb.net:27017,lienhachatbot-public-shard-00-01-ozbw4.mongodb.net:27017,lienhachatbot-public-shard-00-02-ozbw4.mongodb.net:27017/test?ssl=true&replicaSet=lienhachatbot-public-shard-0&authSource=admin&retryWrites=true&w=majority',
