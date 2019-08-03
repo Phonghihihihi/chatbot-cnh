@@ -6,7 +6,7 @@ module.exports = {
 	FIRST_COME : '[Chatbot] Chào mừng bạn đến với chatbot. Trước khi bắt đầu, hãy chắc chắn rằng bạn đã chọn đúng giới tính người muốn chat cùng. Ấn trợ giúp (hoặc gửi trogiup) để xem thêm.',
 	HUONG_DAN : "[Chatbot] Gửi batdau hoặc bấm vào nút để tìm bạn chat.",
 	BATDAU_OKAY : "[Chatbot] OK! Chúng mình sẽ thông báo khi tìm được \"đối phương\" nha.",
-	BATDAU_WARN_GENDER : "[Chatbot] Lưu ý: Bạn không chọn giới tính. Có thể bạn sẽ phải đợi lâu hơn.",
+	BATDAU_WARN_GENDER : "[Chatbot] Lưu ý: Bạn chưa chọn giới tính. Nếu đen bạn sẽ phải đợi lâu hơn.",
 	BATDAU_ERR_ALREADY : "[Chatbot] Bạn không thể batdau khi chưa ketthuc...",
 	WAITING : "[Chatbot] Đang tìm cá...",
 	START_CHAT : "[Chatbot] Connected! Nếu muốn kết thúc, hãy gửi ketthuc\nChúc 2 bạn nói chuyện vui vẻ =)))",
@@ -16,17 +16,17 @@ module.exports = {
 	ERR_ATTACHMENT : "[Chatbot] Lỗi: chúng mình chưa hỗ trợ gửi dạng dữ liệu này",
 	ATTACHMENT_FILE : "[Chatbot] Bạn ý đã gửi 1 tệp tin: ",
 	ATTACHMENT_LINK : "[Chatbot] Bạn ý đã gửi 1 đường link: ",
-	ERR_FAKE_MSG : "[Chatbot] Lỗi: Bạn không được giả mạo tin nhắn của bot nhé",
+	ERR_FAKE_MSG : "[Chatbot] Lỗi: Bạn không được giả mạo tin nhắn của bot nha :)",
 	SQL_ERR : "[Chatbot] Lỗi: Không thể kết nối với database. Hãy báo cho admin!",
 	GENDER_ERR : "[Chatbot] Lỗi: Giới tính nhập vào không hợp lệ!",
-	GENDER_WRITE_OK : "[Chatbot] Bạn đã chọn giới tính mong muốn tìm được là: ",
+	GENDER_WRITE_OK : "[Chatbot] Bạn đã chọn đối tượng muốn chat với giới tính là: ",
 	GENDER_WRITE_WARN : "\n\nLưu ý: Tùy chọn này chỉ có tác dụng với PHẦN LỚN các cuộc nói chuyện.",
 	GENDER_ARR : ['không quan tâm', 'nam', 'nữ'],
 	HELP_TXT : "[Chatbot] Danh sách các lệnh:\n" +
 				"- batdau: Bắt đầu tìm bạn chat\n"+
 				"- ketthuc: Kết thúc chat\n"+
 				"- trogiup: Xem trợ giúp\n"+
-				"- meow: Xem ảnh mèo\n"+
+				"- meow: Xem ảnh moè\n"+
 				"- gauw: Xem ảnh cún\n"+
 				"\nCác lệnh có thể dùng khi đang không chat:\n"+
 				"- tim nu: Tìm nữ chat cùng\n"+
