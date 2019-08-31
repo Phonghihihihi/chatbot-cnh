@@ -16,7 +16,7 @@ module.exports = {
 	ERR_ATTACHMENT : "[Chatbot] Lỗi: chúng mình chưa hỗ trợ gửi dạng dữ liệu này",
 	ATTACHMENT_FILE : "[Chatbot] Bạn ý đã gửi 1 tệp tin: ",
 	ATTACHMENT_LINK : "[Chatbot] Bạn ý đã gửi 1 đường link: ",
-	ERR_FAKE_MSG : "[Chatbot] Lỗi: Bạn không được giả mạo tin nhắn của bot nha =)))",
+	ERR_FAKE_MSG : "[Chatbot] Lỗi: Bạn không được giả mạo tin nhắn của bot nha :v",
 	SQL_ERR : "[Chatbot] Lỗi: Không thể kết nối với database. Hãy báo cho admin!",
 	GENDER_ERR : "[Chatbot] Lỗi: Giới tính nhập vào không hợp lệ!",
 	GENDER_WRITE_OK : "[Chatbot] Bạn đã chọn đối tượng muốn chat với giới tính là: ",
