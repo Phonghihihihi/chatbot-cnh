@@ -7,7 +7,7 @@ module.exports = {
 	FB_PAGE_ACCESS_TOKEN : 'EAAG7WfEhGK0BAMI2aZC8VuPzMrZA5x9Tolz5QU9YT2XiviXfqeDnGKYZB48qAct5BZCLuglSYPRrhsfzZCvjuK4ZAuZAPTmp4PTfmWIQpnIDZBRC2x8bl4UZBhtJQHBWbLR9PBJZBZC0YmzXx4gYh2dqNbhFEZCN5L0YxxKKZArwAHSTxgYMS1UZC6aoNZAoOBbGWnfZCwsZD',
 
 	//HEROKU STUFFS
-	APP_NAME : 'chatbothihihi',
+	APP_NAME : 'lienhachatbot-public',
 	HEROKU_API_KEY : '559dbf6b-bc03-4182-8da4-4b2e4cea8d68',
 	KEEP_APP_ALWAYS_ON : true, // đổi thành true nếu đã thêm credit card vào heroku
 
