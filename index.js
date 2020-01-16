@@ -33,6 +33,7 @@ var MAINTAINING = false;
 
 var mongo = {}
 
+
 function connectToMongo() {
 	MongoClient.connect(co.DB_CONFIG_URI.replace('/test', '/chatbot'), function(err, mdb) {
 		if (err) {
