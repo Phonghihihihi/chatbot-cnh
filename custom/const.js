@@ -15,7 +15,7 @@ module.exports = {
 	DB_CONFIG_URI : 'mongodb://admin:phonglon@lienhachatbot-public-shard-00-00-ozbw4.mongodb.net:27017,lienhachatbot-public-shard-00-01-ozbw4.mongodb.net:27017,lienhachatbot-public-shard-00-02-ozbw4.mongodb.net:27017/test?ssl=true&replicaSet=lienhachatbot-public-shard-0&authSource=admin&retryWrites=true&w=majority',
 
 	//ANALYTICS,
-	HAS_POST_LOG : false,
+	HAS_POST_LOG : true,
 	POST_LOG_ID : '1AxQqesUbvDW_TYMSLfreyoBvPqk2nCcGslidBdm2BRE',
 	POST_LOG_ENTRY1 : '1489417375',
 	POST_LOG_ENTRY2 : '377087959',
