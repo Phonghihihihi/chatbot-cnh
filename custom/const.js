@@ -16,7 +16,7 @@ module.exports = {
 
 	//ANALYTICS,
 	HAS_POST_LOG : true,
-	POST_LOG_ID : '1FAIpQLSdHyO2hsGC_r605HhJEXlyhexT7yy2Mp9mJSUdd5i1V9sU5Dg',
+	POST_LOG_ID : '1AxQqesUbvDW_TYMSLfreyoBvPqk2nCcGslidBdm2BRE',
 	POST_LOG_ENTRY1 : '1489417375',
 	POST_LOG_ENTRY2 : '377087959',
 
