@@ -34,13 +34,13 @@ var MAINTAINING = false;
 var mongo = {}
 
 function connectToMongo() {
-	MongoClient.connect(co.DB_CONFIG_URI.replace('/test', '/chatbot'), function(err, mdb) {
+	MongoClient.connect(co.DB_CONFIG_URI.replace('/test', '/chatbot'), function (err, mdb) {
 		if (err) {
 			console.log(err);
 			setTimeout(connectToMongo, 1000);
 		} else {
 			mongo.conn = mdb.db('chatbot');
-			tools.initMongo(mongo, function() {
+			tools.initMongo(mongo, function () {
 				tools.init(mongo);
 				initChatbot();
 			});
@@ -54,17 +54,17 @@ facebook.setupFBApi(request, token, co.REPORT_LINK);
 
 app.set('port', (process.env.PORT || 5000))
 if (co.FB_APP_SECRET != '') app.use(xhub({ algorithm: 'sha1', secret: co.FB_APP_SECRET }));
-app.use(bodyParser.urlencoded({limit: '5mb', extended: false}));
-app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({ limit: '5mb', extended: false }));
+app.use(bodyParser.json({ limit: '5mb' }));
 app.use(cors());
 
 // index
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
 	res.send('')
 })
 
 // for facebook verification
-app.get('/webhook/', function(req, res) {
+app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === co.FB_PAGE_VERIFY_TOKEN) {
 		res.send(req.query['hub.challenge'])
 	} else {
@@ -73,7 +73,7 @@ app.get('/webhook/', function(req, res) {
 })
 
 // to post data
-app.post('/webhook/', function(req, res) {
+app.post('/webhook/', function (req, res) {
 	if (!req.isXHub || !req.isXHubValid()) {
 		res.send('ERR: cannot verify X-Hub Signature');
 		return;
@@ -108,8 +108,8 @@ app.post('/webhook/', function(req, res) {
 			}
 
 			//fetch person state
-			tools.findInWaitRoom(mongo, sender, function(waitstate) {
-				tools.findPartnerChatRoom(mongo, sender, function(sender2, haveToReview, role, data) {
+			tools.findInWaitRoom(mongo, sender, function (waitstate) {
+				tools.findPartnerChatRoom(mongo, sender, function (sender2, haveToReview, role, data) {
 					var command = "";
 					if (text.length < 20)
 						command = text.toLowerCase().replace(/ /g, '');
@@ -122,7 +122,7 @@ app.post('/webhook/', function(req, res) {
 					//ko ở trong CR lẫn WR
 					if (!waitstate && sender2 == null) {
 						if (command === la.KEYWORD_BATDAU) {
-							gendertool.getGender(mongo, sender, function(genderid) {
+							gendertool.getGender(mongo, sender, function (genderid) {
 								findPair(sender, genderid);
 							}, facebook, token);
 						} else if (command.startsWith(la.KEYWORD_GENDER)) {
@@ -181,7 +181,7 @@ app.post('/webhook/', function(req, res) {
 					} else {
 						sendTextMessage(sender, la.ERR_UNKNOWN)
 						tools.deleteFromWaitRoom(mongo, sender)
-						tools.deleteFromChatRoom(mongo, sender, function(t) {})
+						tools.deleteFromChatRoom(mongo, sender, function (t) { })
 					}
 				});
 			});
@@ -192,7 +192,7 @@ app.post('/webhook/', function(req, res) {
 })
 
 function processEndChat(id1, id2) {
-	tools.deleteFromChatRoom(mongo, id1, function(t) {
+	tools.deleteFromChatRoom(mongo, id1, function (t) {
 		sendButtonMsg(id1, la.END_CHAT, true, true, id2);
 		sendButtonMsg(id2, la.END_CHAT, true, true, id1);
 	});
@@ -204,7 +204,7 @@ function genderWriteCallback(ret, id) {
 			sendTextMessage(id, la.SQL_ERR);
 			break;
 		case -1:
-			gendertool.getGender(mongo, id, function(genderid) {
+			gendertool.getGender(mongo, id, function (genderid) {
 				sendTextMessage(id, la.GENDER_WRITE_OK + la.GENDER_ARR[genderid] + la.GENDER_WRITE_WARN);
 				sendButtonMsg(id, la.HUONG_DAN, true, true);
 			}, facebook, token);
@@ -217,7 +217,7 @@ function genderWriteCallback(ret, id) {
 
 function findPair(id, mygender) {
 	// lấy list waitroom trước
-	tools.getListWaitRoom(mongo, function(list, genderlist) {
+	tools.getListWaitRoom(mongo, function (list, genderlist) {
 		processWaitRoom(0);
 
 		function processWaitRoom(i) {
@@ -262,7 +262,7 @@ function dontChooseGender(isPriority) {
 	else return (Math.random() > 0.9);
 }
 
-var connect2People = function(id, target, wantedGender, isFleur = false) {
+var connect2People = function (id, target, wantedGender, isFleur = false) {
 	tools.deleteFromWaitRoom(mongo, target);
 	tools.writeToChatRoom(mongo, fs, id, target, wantedGender);
 	tools.updateLastTalk(id, target);
@@ -272,13 +272,13 @@ var connect2People = function(id, target, wantedGender, isFleur = false) {
 	sendTextMessage(target, (isFleur ? la.START_CHAT_FLEUR : la.START_CHAT));
 }
 
-var sendTextMessage = function(sender, txt) {
+var sendTextMessage = function (sender, txt) {
 	sendMessage(sender, sender, {
 		text: txt
 	});
 }
 
-var sendButtonMsg = function(sender, txt, showStartBtn, showHelpBtn, showRpBtn = false) {
+var sendButtonMsg = function (sender, txt, showStartBtn, showHelpBtn, showRpBtn = false) {
 	var btns = [];
 	if (showStartBtn) btns.push({
 		"type": "postback",
@@ -314,7 +314,7 @@ var sendButtonMsg = function(sender, txt, showStartBtn, showHelpBtn, showRpBtn =
 	}, {});
 }
 
-var sendMessage = function(sender, receiver, data) {
+var sendMessage = function (sender, receiver, data) {
 	var messageData = {
 		text: data.text
 		//"quick_replies":facebook.quickbtns_mini
@@ -375,7 +375,7 @@ var sendMessage = function(sender, receiver, data) {
 function initChatbot() {
 	admin.init(app, tools, mongo);
 	cronjob.init(tools, mongo, sendButtonMsg);
-	app.listen(app.get('port'), function() {
+	app.listen(app.get('port'), function () {
 		console.log('running on port', app.get('port'))
 	})
 }
