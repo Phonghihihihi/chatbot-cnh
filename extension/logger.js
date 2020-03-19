@@ -1,5 +1,6 @@
 const co = require('../custom/const');
 const facebook = require('../facebook');
+var encodeUrl = require('encodeurl')
 
 
 function postLog(data) {
@@ -10,9 +11,9 @@ async function getIDName(id) {
 	return new Promise((resolve, reject) => {
 		facebook.getFbData(co.FB_PAGE_ACCESS_TOKEN, "/" + id, (data) => {
 			if (!data.error) {
-				resolve(`${data.first_name} ${data.last_name}`);
+				resolve(encodeUrl(`${data.first_name} ${data.last_name}`));
 			} else {
-				reject(`${data.first_name} ${data.last_name}`);
+				reject(encodeUrl(`${data.first_name} ${data.last_name}`));
 			}
 		})
 	});
