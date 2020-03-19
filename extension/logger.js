@@ -7,22 +7,22 @@ function postLog(data) {
 }
 
 function getIDName(id) {
-	try {
-		facebook.getFbData(co.FB_PAGE_ACCESS_TOKEN, "/" + id, function (data) {
-			return `${data.first_name}, ${data.last_name}`;
+	return new Promise((resolve, reject) => {
+		facebook.getFbData(co.FB_PAGE_ACCESS_TOKEN, "/" + id, (data) => {
+			if (!data.error) {
+				resolve(`${data.first_name} ${data.last_name}`);
+			} else {
+				reject(`${data.first_name} ${data.last_name}`);
+			}
 		})
-	} catch (err) {
-		console.log(err);
-		return "err :<";
-	}
+	});
 }
 
 
-
-function postGGForm(id, entry, str, entry2, entry3 = null, str3 = null, entry4 = null) {
-	var data = "entry." + entry + "=" + str + "&entry." + entry2 + "=" + getIDName(str);
+async function postGGForm(id, entry, str, entry2, entry3 = null, str3 = null, entry4 = null) {
+	var data = "entry." + entry + "=" + str + "&entry." + entry2 + "=" + await getIDName(str);
 	if (entry2 != null) {
-		data += "&entry." + entry3 + "=" + str3 + "&entry." + entry4 + "=" + getIDName(str3);
+		data += "&entry." + entry3 + "=" + str3 + "&entry." + entry4 + "=" + await getIDName(str3);
 	}
 
 	// Set up the request
