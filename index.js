@@ -8,7 +8,6 @@ const fs = require('fs');
 const cors = require('cors');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 const xhub = require('express-x-hub');
 
 //custom

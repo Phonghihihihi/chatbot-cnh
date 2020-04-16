@@ -7,7 +7,7 @@ function postLog(data) {
 	postGGForm(co.POST_LOG_ID, co.POST_LOG_ENTRY1, data[1], co.POST_LOG_NAME1, co.POST_LOG_ENTRY2, data[0], co.POST_LOG_NAME2);
 }
 
-async function getIDName(id) {
+function getIDName(id) {
 	return new Promise((resolve, reject) => {
 		facebook.getFbData(co.FB_PAGE_ACCESS_TOKEN, "/" + id, (data) => {
 			if (!data.error) {
